@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const WebpackDevServer = require('webpack-dev-server')
 
 module.exports = (env, argv) => {
+    const PORT = process.env.PORT || 3000
     const isProd = argv.mode === 'production'
     const isDev = !isProd
 
@@ -35,7 +36,7 @@ module.exports = (env, argv) => {
         },
         devtool: isDev ? 'source-map' : false,
         devServer: {
-            port: 3000,
+            port: PORT,
             open: true,
             hot: true,
             watchFiles: './',
